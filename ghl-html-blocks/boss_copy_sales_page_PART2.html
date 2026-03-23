@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BOSS Copy — Part 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; background: #080808 !important; }
+  body {
+    background: #080808 !important;
+    color: #e2e8f0 !important;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #boss-copy-page,
+  #boss-copy-page *:not(img):not(svg):not(path):not(circle):not(rect) {
+    background-color: transparent;
+  }
+  #boss-copy-page { background: #080808 !important; }
+  html body, html body > div, html body > section {
+    background: #080808 !important;
+  }
+  :root {
+    --blue: #3B82F6;
+    --orange: #F97316;
+    --dark: #080808;
+    --card: #0f1117;
+    --border: #1e2535;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+  }
+
+  /* ── UTILITIES ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+  .text-blue { color: var(--blue); }
+  .text-orange { color: var(--orange); }
+  .text-muted { color: var(--muted); }
+  .text-center { text-align: center; }
+
+  /* ── SECTION STYLES ── */
+  section { padding: 80px 0; background: #080808 !important; }
+  section + section { border-top: 1px solid var(--border); }
+  .section-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 900;
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 680px;
+    margin-bottom: 48px;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--orange), #ea580c);
+    color: #fff;
+    border: none;
+    padding: 18px 48px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    box-shadow: 0 0 30px rgba(249,115,22,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(249,115,22,0.6); }
+
+  /* ── BULLETS ── */
+  .bullets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .bullet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .bullet-icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(59,130,246,0.15);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+  .bullet-item p { color: #cbd5e1; font-size: 0.95rem; }
+
+  /* ── FAQ ── */
+  .faq-list { max-width: 800px; margin: 40px auto 0; }
+  .faq-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .faq-item:hover { border-color: var(--blue); }
+  .faq-q {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .faq-q::before {
+    content: 'Q';
+    background: rgba(59,130,246,0.15);
+    color: var(--blue);
+    border: 1px solid rgba(59,130,246,0.3);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .faq-a { color: var(--muted); font-size: 0.95rem; line-height: 1.7; padding-left: 40px; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(249,115,22,0.06) 100%) !important;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    padding: 100px 0;
+  }
+  .final-cta .section-title { max-width: 700px; margin: 0 auto 20px; }
+  .final-cta .section-sub { margin: 0 auto 40px; }
+  .cta-under {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .cta-under span { color: var(--blue); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 24px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: #080808 !important;
+  }
+  .footer-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--blue), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .footer-sub { font-size: 0.8rem; color: var(--muted); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .bullets-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div id="boss-copy-page" style="background:#080808 !important; width:100%; min-height:100vh; margin:0; padding:0;">
+
+<!-- ── BULLETS — Why BOSS Copy Is Different ── -->
+<section>
+  <div class="container">
+    <div class="section-label text-center">Why BOSS Copy Is Different</div>
+    <h2 class="section-title text-center">10 Reasons This Isn't <span class="text-orange">Another Generic AI Tool</span></h2>
+    <div class="bullets-grid">
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">Uses specific numbers, not vague claims</strong> — "37 business owners" not "many businesses"</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">Names the enemy</strong> — gives your customer something to fight against, making your offer the obvious solution</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">Built-in High Level merge fields</strong> for email and SMS — paste and send, no reformatting required</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">Bullet points and FAQ sections</strong> auto-generated for landing pages and email campaigns</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">Feedback &amp; Rewrite loop</strong> — type what you want changed, BOSS rewrites it instantly. Iterate as many rounds as you need, no limit</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">"Improve My Copy" feature</strong> rewrites your existing assets using the BOSS formula with a full change log</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">Email results in one click</strong> — send any generated copy straight to your inbox to share with a client or team member</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">Optional AI agent bridge</strong> — connect Open CLAW or any AI agent to use BOSS Copy as the generation engine</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">Saves your copy history</strong> — access every session you've ever generated, export to text anytime</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-icon">✓</div>
+        <p><strong style="color:#fff;">Works for any industry, any niche, any offer</strong> — the BOSS formula adapts to your specific business</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section>
+  <div class="container">
+    <div class="section-label text-center">FAQ</div>
+    <h2 class="section-title text-center">Questions? <span class="text-blue">We've Got Answers.</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Do I need any copywriting experience?</div>
+        <div class="faq-a">None. You fill in 5 fields describing your business, customer, and offer. The engine does the rest. If you can describe your business in plain English, you can use BOSS Copy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What AI is powering this?</div>
+        <div class="faq-a">BOSS Copy runs on your own Manus account. You connect your API key during setup — so you're using your own AI credits, not ours. You're in full control of your usage and costs.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does it work with High Level?</div>
+        <div class="faq-a">Yes. Email and SMS outputs use High Level's native merge fields ({{contact.first_name}}, {{contact.company_name}}, {{contact.phone}}, etc.) so you can paste directly into your HL workflows, automations, and campaigns.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I use it for any industry?</div>
+        <div class="faq-a">Yes. The BOSS formula works for any business that sells anything to anyone. Tradies, agencies, coaches, e-commerce, SaaS, local businesses — the formula adapts to your specific customer and offer.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I already have copy I want to improve?</div>
+        <div class="faq-a">Two ways. Use the "Improve My Copy" tab to paste in existing copy and get a full BOSS-formula rewrite with a change log. Or use the Feedback &amp; Rewrite loop on any generated result — type exactly what you want changed and BOSS rewrites it instantly. Iterate as many rounds as you need.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can BOSS Copy write copy for my entire website?</div>
+        <div class="faq-a">Yes — on Platinum. The Full Website Copy Generator has two modes: paste your existing site URL and get a full BOSS-formula rewrite of every section, or choose "Build From Scratch" and fill in your business details to generate complete copy for every page — Home, About, Services, Contact, FAQ, and more. Every page includes headlines, body copy, bullet points, CTAs, and SEO meta descriptions. Export the whole package as a text file.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I use it to analyse a competitor's website?</div>
+        <div class="faq-a">Yes — on Platinum. The Competitor Copy Analyser lets you paste any competitor's URL. BOSS scrapes their site, identifies their copy strengths and weaknesses, and builds a full Battle Plan — a section-by-section breakdown of how to beat them with BOSS-formula copy that directly counters their positioning.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there an API for my AI agent?</div>
+        <div class="faq-a">Yes. BOSS Copy has an optional external API endpoint. If you're using an AI agent like Open CLAW, you can connect it via bearer token authentication so your agent generates BOSS-quality copy on demand — without the user ever needing to open the app.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta">
+  <div class="container">
+    <div class="section-label text-center">Ready?</div>
+    <h2 class="section-title">Stop Writing Boiled-Rice Copy.<br /><span class="text-orange">Start Generating Conversions.</span></h2>
+    <p class="section-sub">
+      Join the business owners using BOSS Copy to generate high-converting copy in under 60 seconds — for every channel, every campaign, every time.
+    </p>
+    <a href="https://kabooyaaassistant.ai/check-out-boss-copy" class="btn-primary">
+      YES — I Want Access to BOSS Copy →
+    </a>
+    <p class="cta-under">Powered by <span>BOSS AI Agent</span> · kabooyaa* AI Build Workshop</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">BOSS COPY</div>
+  <div class="footer-sub">Powered by BOSS AI Agent · kabooyaa* AI Build Workshop · © 2026</div>
+</footer>
+
+</div><!-- end #boss-copy-page -->
+</body>
+</html>

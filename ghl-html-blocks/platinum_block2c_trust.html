@@ -1,0 +1,80 @@
+<!-- ═══════════════════════════════════════════════════════════
+     BOSS COPY PLATINUM — BLOCK 2C: TRUST + NEXT STEPS
+     Trust badges + "What Happens After You Pay"
+     In HL: place this as a full-width HTML element directly
+     BELOW your HL Checkout element
+     ═══════════════════════════════════════════════════════════ -->
+<style>
+  .pt-2c * { box-sizing: border-box; }
+  .pt-2c {
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0 !important;
+    background: #080808 !important;
+    padding: 40px !important;
+    width: 100%;
+  }
+  .pt-2c .trust-badges {
+    display: flex !important; flex-wrap: wrap !important; gap: 10px !important;
+    justify-content: center !important; margin-bottom: 36px !important;
+  }
+  .pt-2c .tbadge {
+    display: flex !important; align-items: center !important; gap: 7px !important;
+    font-size: 0.82rem !important; font-weight: 600 !important; color: #cbd5e1 !important;
+    background: #0f1117 !important; border: 1px solid rgba(249,115,22,0.2) !important;
+    border-radius: 6px !important; padding: 8px 14px !important;
+  }
+  .pt-2c .tbadge .tick { color: #F97316 !important; font-weight: 900 !important; }
+  .pt-2c .next-steps {
+    background: #0f1117 !important;
+    border: 1px solid rgba(249,115,22,0.2) !important;
+    border-radius: 10px !important;
+    padding: 28px 28px !important;
+    max-width: 680px !important;
+    margin: 0 auto !important;
+  }
+  .pt-2c .ns-title {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #F97316; margin-bottom: 22px; text-align: center;
+  }
+  .pt-2c .ns-step { display: flex !important; align-items: flex-start !important; gap: 16px !important; margin-bottom: 18px !important; }
+  .pt-2c .ns-step:last-child { margin-bottom: 0 !important; }
+  .pt-2c .ns-num {
+    min-width: 32px !important; height: 32px !important;
+    background: rgba(249,115,22,0.12) !important; border: 1px solid rgba(249,115,22,0.3) !important;
+    border-radius: 50% !important; display: flex !important; align-items: center !important;
+    justify-content: center !important; font-size: 0.82rem !important; font-weight: 800 !important;
+    color: #F97316 !important; flex-shrink: 0 !important; margin-top: 1px !important;
+  }
+  .pt-2c .ns-text { font-size: 0.93rem !important; color: #cbd5e1 !important; line-height: 1.6 !important; }
+  .pt-2c .ns-text strong { color: #fff !important; }
+  @media (max-width: 600px) {
+    .pt-2c { padding: 28px 20px !important; }
+    .pt-2c .next-steps { padding: 22px 18px !important; }
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<div class="pt-2c">
+  <div class="trust-badges">
+    <div class="tbadge"><span class="tick">✓</span> Secure Checkout</div>
+    <div class="tbadge"><span class="tick">✓</span> Instant Access</div>
+    <div class="tbadge"><span class="tick">✓</span> Cancel Anytime</div>
+    <div class="tbadge"><span class="tick">✓</span> No Lock-In Contracts</div>
+    <div class="tbadge"><span class="tick">✓</span> 30-Day Protection</div>
+  </div>
+  <div class="next-steps">
+    <div class="ns-title">What Happens After You Pay</div>
+    <div class="ns-step">
+      <div class="ns-num">1</div>
+      <div class="ns-text"><strong>You receive your Platinum login link by email</strong> — immediately after payment is confirmed. No waiting, no manual approval.</div>
+    </div>
+    <div class="ns-step">
+      <div class="ns-num">2</div>
+      <div class="ns-text"><strong>Create your free Manus account</strong> at manus.im — takes about 2 minutes. Manus is the AI platform BOSS Copy runs on. Your account is free to create.</div>
+    </div>
+    <div class="ns-step">
+      <div class="ns-num">3</div>
+      <div class="ns-text"><strong>Connect your Manus API key</strong> and you're generating conversion-ready copy and social media images within minutes of completing this page.</div>
+    </div>
+  </div>
+</div>

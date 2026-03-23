@@ -1,0 +1,246 @@
+<!-- ═══════════════════════════════════════════════════════════
+     BOSS COPY PLATINUM CHECKOUT — BLOCK 1: HEADER + BILLING TOGGLE
+     Paste this into an HTML element at the top of your Platinum checkout page
+     Platinum checkout URL: https://kabooyaaassistant.ai/check-out-boss-copy-platinum
+     ═══════════════════════════════════════════════════════════ -->
+<style>
+  .pt-b1 * { box-sizing: border-box; }
+  .pt-b1 {
+    background: linear-gradient(180deg, #0a0810 0%, #080808 100%) !important;
+    border-bottom: 1px solid #2a1a08;
+    padding: 52px 40px 44px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0;
+    width: 100%;
+  }
+  .pt-b1 .pre-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #F97316;
+    border: 1px solid rgba(249,115,22,0.35);
+    background: rgba(249,115,22,0.08);
+    padding: 6px 18px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+  .pt-b1 .plat-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #F97316, #ea580c);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .pt-b1 h1 {
+    font-family: 'Orbitron', 'Inter', sans-serif !important;
+    font-weight: 900 !important;
+    font-size: clamp(1.2rem, 3vw, 2.6rem) !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    max-width: 90vw !important;
+    margin: 0 auto 20px !important;
+    color: #fff !important;
+  }
+  .pt-b1 h1 .hl { color: #F97316 !important; }
+  .pt-b1 .sub {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #94a3b8;
+    max-width: 700px;
+    margin: 0 auto 32px;
+    line-height: 1.75;
+  }
+  .pt-b1 .sub strong { color: #fff; }
+
+  /* Includes chips */
+  .pt-b1 .includes-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .pt-b1 .inc-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0f1117;
+    border: 1px solid #1e2535;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #cbd5e1;
+  }
+  .pt-b1 .inc-chip .tick { color: #F97316; font-weight: 900; }
+
+  /* Billing toggle */
+  .pt-billing-toggle {
+    display: inline-flex;
+    background: #0f1117;
+    border: 1px solid #2a1a08;
+    border-radius: 50px;
+    padding: 5px;
+    margin-bottom: 28px;
+    gap: 4px;
+  }
+  .pt-billing-toggle button {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .pt-billing-toggle button.pt-active {
+    background: linear-gradient(135deg, #F97316, #ea580c);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(249,115,22,0.4);
+  }
+  .pt-billing-toggle .save-badge {
+    display: inline-block;
+    background: #22c55e;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Price display */
+  .pt-price-wrap { margin-bottom: 28px; }
+  .pt-price-main {
+    font-family: 'Orbitron', 'Inter', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+  }
+  .pt-price-main .currency { font-size: 0.5em; vertical-align: top; margin-top: 0.35em; color: #94a3b8; }
+  .pt-price-main .period { font-size: 0.32em; color: #64748b; font-family: 'Inter', sans-serif; font-weight: 600; }
+  .pt-price-note { font-size: 0.85rem; color: #64748b; margin-top: 8px; }
+  .pt-price-note .saving { color: #22c55e; font-weight: 700; }
+
+  /* Show/hide */
+  .pt-show-monthly { display: block; }
+  .pt-show-annual  { display: none; }
+  .pt-is-annual .pt-show-monthly { display: none; }
+  .pt-is-annual .pt-show-annual  { display: block; }
+
+  /* Urgency strip */
+  .pt-b1 .urgency-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(249,115,22,0.08);
+    border: 1px solid rgba(249,115,22,0.25);
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #F97316;
+  }
+  .pt-b1 .urgency-dot {
+    width: 8px; height: 8px;
+    background: #F97316;
+    border-radius: 50%;
+    animation: ptpulse 1.5s infinite;
+    flex-shrink: 0;
+  }
+  @keyframes ptpulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+  @media (max-width: 600px) {
+    .pt-b1 { padding: 36px 20px 32px; }
+    .pt-billing-toggle button { padding: 9px 14px; font-size: 0.8rem; }
+  }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<div class="pt-b1">
+
+  <div class="pre-label">BOSS Copy Platinum — Secure Checkout <span class="plat-badge">Most Powerful</span></div>
+
+  <h1>
+    <span style="display:block !important;">Copy That Converts.</span>
+    <span style="display:block !important;">Visuals That <span class="hl">Stop the Scroll.</span></span>
+    <span style="display:block !important;">Everything in One Tool.</span>
+  </h1>
+
+  <p class="sub">
+    BOSS Copy Platinum is the complete content engine for business owners who are done stitching together separate tools. <strong>Write the ad. Generate the image. Post it.</strong> All powered by a proven direct response formula — in under 60 seconds.
+  </p>
+
+  <!-- What's included chips -->
+  <div class="includes-row">
+    <div class="inc-chip"><span class="tick">✓</span> Full Copy Generator</div>
+    <div class="inc-chip"><span class="tick">✓</span> 8 Output Formats</div>
+    <div class="inc-chip"><span class="tick">✓</span> Improve My Copy</div>
+    <div class="inc-chip"><span class="tick">✓</span> AI Image Generator</div>
+    <div class="inc-chip"><span class="tick">✓</span> All Social Media Sizes</div>
+    <div class="inc-chip"><span class="tick">✓</span> Regenerate &amp; Refine</div>
+    <div class="inc-chip"><span class="tick">✓</span> Session History</div>
+  </div>
+
+  <!-- Billing toggle -->
+  <div>
+    <div class="pt-billing-toggle">
+      <button class="pt-active" id="pt-btn-monthly" onclick="ptSetBilling('monthly')">Pay Monthly</button>
+      <button id="pt-btn-annual" onclick="ptSetBilling('annual')">Pay Annually <span class="save-badge">SAVE $294</span></button>
+    </div>
+  </div>
+
+  <!-- Price display -->
+  <div class="pt-price-wrap" id="pt-price-root">
+    <div class="pt-show-monthly">
+      <div class="pt-price-main"><span class="currency">$</span>147<span class="period"> / month</span></div>
+      <div class="pt-price-note">Billed monthly &middot; Cancel anytime &middot; No lock-in contracts</div>
+    </div>
+    <div class="pt-show-annual">
+      <div class="pt-price-main"><span class="currency">$</span>1,470<span class="period"> / year</span></div>
+      <div class="pt-price-note">That's just $122.50/month &middot; <span class="saving">You save $294 compared to monthly billing</span></div>
+    </div>
+  </div>
+
+  <!-- Urgency -->
+  <div class="urgency-strip">
+    <div class="urgency-dot"></div>
+    Launch pricing — lock in your Platinum rate before it goes up
+  </div>
+
+</div>
+
+<script>
+  function ptSetBilling(type) {
+    var root = document.getElementById('pt-price-root');
+    var btnM = document.getElementById('pt-btn-monthly');
+    var btnA = document.getElementById('pt-btn-annual');
+    if (type === 'annual') {
+      root.classList.add('pt-is-annual');
+      btnA.classList.add('pt-active');
+      btnM.classList.remove('pt-active');
+    } else {
+      root.classList.remove('pt-is-annual');
+      btnM.classList.add('pt-active');
+      btnA.classList.remove('pt-active');
+    }
+  }
+</script>

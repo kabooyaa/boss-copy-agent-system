@@ -1,0 +1,479 @@
+<!-- ═══════════════════════════════════════════════════════════
+     BOSS COPY — ORDER CONFIRMATION PAGE
+     Paste this into a High Level funnel page as a single HTML element
+     This page works for BOTH Pro and Platinum buyers
+     ═══════════════════════════════════════════════════════════ -->
+
+<style>
+  /* ── Full-page HL override ── */
+  html, body {
+    background: #080808 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  /* Kill HL section/row/column padding */
+  .section-body,
+  .inner-section,
+  .container-fluid,
+  [data-section-id],
+  .funnelish-section,
+  .hl-section,
+  .hl-row,
+  .hl-col,
+  .hl-element,
+  .html-embed-wrapper,
+  .html-embed,
+  .custom-html,
+  .custom-html-wrapper {
+    background: #080808 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .bc-confirm * { box-sizing: border-box; }
+  .bc-confirm {
+    background: #080808;
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ── Hero Image ── */
+  .bc-confirm .hero-img {
+    width: 100%;
+    display: block;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* ── Main Content ── */
+  .bc-confirm .content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+    text-align: center;
+  }
+
+  /* ── Confirmed Badge ── */
+  .bc-confirm .confirmed-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34,197,94,0.1);
+    border: 1px solid rgba(34,197,94,0.35);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #22c55e;
+    margin-bottom: 28px;
+  }
+  .bc-confirm .confirmed-badge .dot {
+    width: 8px; height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: bcpulse 1.5s infinite;
+    flex-shrink: 0;
+  }
+  @keyframes bcpulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.6); }
+  }
+
+  /* ── Headline ── */
+  .bc-confirm h1 {
+    font-family: 'Orbitron', 'Inter', sans-serif !important;
+    font-weight: 900 !important;
+    font-size: clamp(1.6rem, 4vw, 2.8rem) !important;
+    line-height: 1.25 !important;
+    color: #fff !important;
+    margin-bottom: 16px !important;
+  }
+  .bc-confirm h1 .hl { color: #F97316 !important; }
+
+  .bc-confirm .sub {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: #94a3b8;
+    line-height: 1.75;
+    margin-bottom: 44px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bc-confirm .sub strong { color: #fff; }
+
+  /* ── Email Alert Box ── */
+  .bc-confirm .email-alert {
+    background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(249,115,22,0.04));
+    border: 2px solid rgba(249,115,22,0.35);
+    border-radius: 14px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    text-align: left;
+    box-shadow: 0 0 60px rgba(249,115,22,0.08);
+  }
+  .bc-confirm .ea-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .bc-confirm .ea-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  .bc-confirm .ea-title {
+    font-family: 'Orbitron', 'Inter', sans-serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .bc-confirm .ea-title span { color: #F97316; }
+  .bc-confirm .ea-body {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .bc-confirm .ea-body strong { color: #fff; }
+
+  /* Inbox checklist */
+  .bc-confirm .inbox-check {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .bc-confirm .ic-row {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    background: rgba(0,0,0,0.3) !important;
+    border: 1px solid #1e2535 !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+  }
+  .bc-confirm .ic-row.highlight {
+    border-color: rgba(249,115,22,0.3) !important;
+    background: rgba(249,115,22,0.04) !important;
+  }
+  .bc-confirm .ic-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .bc-confirm .ic-text {
+    font-size: 0.9rem !important;
+    color: #cbd5e1 !important;
+    line-height: 1.55 !important;
+  }
+  .bc-confirm .ic-text strong { color: #fff !important; }
+
+  /* ── Next Steps ── */
+  .bc-confirm .next-steps-section {
+    text-align: left;
+    margin-bottom: 48px;
+  }
+  .bc-confirm .ns-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #F97316;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .bc-confirm .ns-title {
+    font-family: 'Orbitron', 'Inter', sans-serif !important;
+    font-size: clamp(1rem, 2vw, 1.4rem) !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    text-align: center !important;
+    margin-bottom: 28px !important;
+    line-height: 1.3 !important;
+  }
+  .bc-confirm .step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .bc-confirm .step-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+    background: #0f1117 !important;
+    border: 1px solid #1e2535 !important;
+    border-radius: 10px !important;
+    padding: 20px 22px !important;
+  }
+  .bc-confirm .step-num {
+    min-width: 36px !important;
+    height: 36px !important;
+    background: rgba(249,115,22,0.12) !important;
+    border: 2px solid rgba(249,115,22,0.35) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: 'Orbitron', 'Inter', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 900 !important;
+    color: #F97316 !important;
+    flex-shrink: 0 !important;
+    margin-top: 1px !important;
+  }
+  .bc-confirm .step-content { flex: 1; }
+  .bc-confirm .step-content strong {
+    display: block;
+    color: #fff !important;
+    font-size: 0.97rem !important;
+    margin-bottom: 5px !important;
+    line-height: 1.3 !important;
+  }
+  .bc-confirm .step-content p {
+    color: #94a3b8 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+  }
+  .bc-confirm .step-content a {
+    color: #F97316 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+  }
+  .bc-confirm .step-content a:hover { text-decoration: underline !important; }
+
+  /* ── What You Can Do Now ── */
+  .bc-confirm .can-do-section {
+    background: #0f1117;
+    border: 1px solid #1e2535;
+    border-radius: 14px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+    text-align: left;
+  }
+  .bc-confirm .cd-title {
+    font-family: 'Orbitron', 'Inter', sans-serif !important;
+    font-size: clamp(0.9rem, 1.8vw, 1.15rem) !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    margin-bottom: 20px !important;
+  }
+  .bc-confirm .cd-title .hl { color: #F97316 !important; }
+  .bc-confirm .cd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .bc-confirm .cd-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding: 12px 14px !important;
+    background: rgba(249,115,22,0.04) !important;
+    border: 1px solid rgba(249,115,22,0.15) !important;
+    border-radius: 8px !important;
+  }
+  .bc-confirm .cd-tick {
+    color: #F97316 !important;
+    font-weight: 900 !important;
+    font-size: 0.9rem !important;
+    flex-shrink: 0 !important;
+    margin-top: 1px !important;
+  }
+  .bc-confirm .cd-item p {
+    color: #cbd5e1 !important;
+    font-size: 0.86rem !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+  }
+  .bc-confirm .cd-item p strong { color: #fff !important; }
+
+  /* ── Support Note ── */
+  .bc-confirm .support-note {
+    background: rgba(59,130,246,0.06);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 10px;
+    padding: 22px 28px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  .bc-confirm .support-note strong { color: #fff; }
+  .bc-confirm .support-note a { color: #3B82F6; font-weight: 700; text-decoration: none; }
+
+  /* ── Share Strip ── */
+  .bc-confirm .share-strip {
+    border-top: 1px solid #1e2535;
+    padding-top: 36px;
+    text-align: center;
+  }
+  .bc-confirm .share-strip p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 16px;
+  }
+  .bc-confirm .share-strip p strong { color: #94a3b8; }
+  .bc-confirm .brand-footer {
+    margin-top: 32px;
+    font-size: 0.78rem;
+    color: #334155;
+    letter-spacing: 0.06em;
+  }
+  .bc-confirm .brand-footer span { color: #F97316; }
+
+  @media (max-width: 600px) {
+    .bc-confirm .content { padding: 40px 20px 60px; }
+    .bc-confirm .email-alert { padding: 24px 20px; }
+    .bc-confirm .can-do-section { padding: 24px 20px; }
+    .bc-confirm .step-item { padding: 16px 16px !important; }
+    .bc-confirm .hero-img { max-height: 260px; }
+  }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<div class="bc-confirm">
+
+  <!-- Hero Image -->
+  <img
+    class="hero-img"
+    src="https://d2xsxph8kpxj0f.cloudfront.net/310419663030127435/UvFmkdv6HRJ6sT6ADJy9Ay/boss_copy_confirmation_hero-geqj9kQD6ecpNLUHEMLqap.png"
+    alt="BOSS Copy Access Confirmed"
+  />
+
+  <div class="content">
+
+    <!-- Confirmed Badge -->
+    <div class="confirmed-badge">
+      <div class="dot"></div>
+      Payment Confirmed &mdash; Access Granted
+    </div>
+
+    <!-- Headline -->
+    <h1>
+      Welcome to<br />
+      <span class="hl">BOSS Copy.</span>
+    </h1>
+    <p class="sub">
+      Your subscription is live. <strong>You're about to generate better copy than most businesses pay thousands for</strong> — and you'll do it in under 60 seconds. Here's exactly what happens next.
+    </p>
+
+    <!-- Email Alert Box -->
+    <div class="email-alert">
+      <div class="ea-header">
+        <div class="ea-icon">📧</div>
+        <div class="ea-title">Your Access Link Is <span>On Its Way</span></div>
+      </div>
+      <p class="ea-body">
+        We've sent your BOSS Copy login link to the email address you used at checkout. <strong>It should arrive within the next 2–3 minutes.</strong> While you wait, here's what to check if you don't see it:
+      </p>
+      <div class="inbox-check">
+        <div class="ic-row highlight">
+          <div class="ic-icon">📥</div>
+          <div class="ic-text"><strong>Check your inbox first</strong> — look for an email from kabooyaaassistant.ai with the subject line "You're in — your BOSS Copy access is ready"</div>
+        </div>
+        <div class="ic-row">
+          <div class="ic-icon">🚫</div>
+          <div class="ic-text"><strong>Check your spam or junk folder</strong> — some email providers flag new senders. If it's in there, mark it as "Not Spam" so future emails come through cleanly</div>
+        </div>
+        <div class="ic-row">
+          <div class="ic-icon">📂</div>
+          <div class="ic-text"><strong>Check your Promotions tab</strong> (Gmail users) — Google sometimes sorts transactional emails here. Drag it to your Primary inbox to keep it accessible</div>
+        </div>
+        <div class="ic-row">
+          <div class="ic-icon">⏱️</div>
+          <div class="ic-text"><strong>Still nothing after 10 minutes?</strong> Contact us at <strong>support@kabooyaaassistant.ai</strong> and we'll get your access sorted immediately</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="next-steps-section">
+      <div class="ns-label">Once You Have Your Link</div>
+      <div class="ns-title">3 Steps to Your First Piece of BOSS Copy</div>
+      <div class="step-list">
+
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Click the login link in your email</strong>
+            <p>The link takes you directly to BOSS Copy. No password to create, no long setup process. One click and you're inside the tool.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Create your free Manus account at <a href="https://manus.im/invitation/A1NALVILSYOD3Q" target="_blank">manus.im</a></strong>
+            <p>BOSS Copy runs on the Manus AI platform. Creating your account is free and takes about 2 minutes. Once you're in, go to Settings → API Keys and generate your key.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Paste your Manus API key into BOSS Copy and start generating</strong>
+            <p>The first time you log in, BOSS Copy will walk you through connecting your API key step by step. After that, you're ready to generate your first piece of conversion-ready copy — in under 60 seconds.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- What You Can Do Now -->
+    <div class="can-do-section">
+      <div class="cd-title">While You Wait for Your Email — <span class="hl">Here's What's Coming</span></div>
+      <div class="cd-grid">
+        <div class="cd-item">
+          <div class="cd-tick">✓</div>
+          <p><strong>10 Headline Variants</strong> — Drama, Logic/Proof, and Cold Decision angles every session</p>
+        </div>
+        <div class="cd-item">
+          <div class="cd-tick">✓</div>
+          <p><strong>8 Output Formats</strong> — Facebook ads, emails, SMS, landing pages, video scripts, and more</p>
+        </div>
+        <div class="cd-item">
+          <div class="cd-tick">✓</div>
+          <p><strong>HL Merge Fields Built In</strong> — Paste directly into your GoHighLevel automations</p>
+        </div>
+        <div class="cd-item">
+          <div class="cd-tick">✓</div>
+          <p><strong>Improve My Copy Tool</strong> — Paste in anything that isn't converting and BOSS rewrites it</p>
+        </div>
+        <div class="cd-item">
+          <div class="cd-tick">✓</div>
+          <p><strong>Full Session History</strong> — Every piece of copy saved to your account, searchable anytime</p>
+        </div>
+        <div class="cd-item">
+          <div class="cd-tick">✓</div>
+          <p><strong>Under 60 Seconds</strong> — From blank page to complete copy suite, every single time</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support Note -->
+    <div class="support-note">
+      <strong>Need help?</strong> We're here. If anything doesn't go smoothly — your email hasn't arrived, you're stuck on the API key setup, or you have any questions at all — email us at <a href="mailto:support@kabooyaaassistant.ai">support@kabooyaaassistant.ai</a> and we'll get you sorted fast. We want you generating copy today, not tomorrow.
+    </div>
+
+    <!-- Share Strip -->
+    <div class="share-strip">
+      <p><strong>Tell someone who needs this.</strong> If you know a business owner, marketer, or agency that's still paying a copywriter or getting mediocre results from generic AI tools — send them here.</p>
+      <p style="margin-top:8px; font-size:0.85rem; color:#475569;">
+        <a href="https://kabooyaaassistant.ai/check-out-boss-copy" style="color:#F97316; font-weight:700; text-decoration:none;">kabooyaaassistant.ai/check-out-boss-copy</a>
+      </p>
+      <div class="brand-footer">
+        BOSS COPY &nbsp;&middot;&nbsp; Powered by <span>BOSS AI Agent</span> &nbsp;&middot;&nbsp; kabooyaaassistant.ai
+      </div>
+    </div>
+
+  </div>
+</div>

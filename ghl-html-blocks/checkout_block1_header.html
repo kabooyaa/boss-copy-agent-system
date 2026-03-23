@@ -1,0 +1,197 @@
+<!-- ═══════════════════════════════════════════════════════════
+     BOSS COPY PRO CHECKOUT — BLOCK 1: HEADER + BILLING TOGGLE
+     Paste this into an HTML element at the top of your checkout page
+     ═══════════════════════════════════════════════════════════ -->
+<style>
+  .co-b1 * { box-sizing: border-box; }
+  .co-b1 {
+    background: linear-gradient(180deg, #0a0d14 0%, #080808 100%) !important;
+    border-bottom: 1px solid #1e2535;
+    padding: 52px 40px 44px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0;
+    width: 100%;
+  }
+  .co-b1 .pre-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #3B82F6;
+    border: 1px solid rgba(59,130,246,0.3);
+    background: rgba(59,130,246,0.08);
+    padding: 6px 18px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+  .co-b1 h1 {
+    font-family: 'Orbitron', 'Inter', sans-serif !important;
+    font-weight: 900 !important;
+    font-size: clamp(1.2rem, 3vw, 2.6rem) !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    max-width: 90vw !important;
+    margin: 0 auto 20px !important;
+    color: #fff !important;
+  }
+  .co-b1 h1 .hl { color: #3B82F6 !important; }
+  .co-b1 .sub {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    color: #94a3b8;
+    max-width: 660px;
+    margin: 0 auto 32px;
+    line-height: 1.75;
+  }
+
+  /* Billing toggle */
+  .billing-toggle {
+    display: inline-flex;
+    background: #0f1117;
+    border: 1px solid #1e2535;
+    border-radius: 50px;
+    padding: 5px;
+    margin-bottom: 28px;
+    gap: 4px;
+  }
+  .billing-toggle button {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .billing-toggle button.b1-active {
+    background: #3B82F6;
+    color: #fff;
+    box-shadow: 0 0 16px rgba(59,130,246,0.4);
+  }
+  .billing-toggle .save-badge {
+    display: inline-block;
+    background: #22c55e;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Price display */
+  .b1-price-wrap { margin-bottom: 28px; }
+  .b1-price-main {
+    font-family: 'Orbitron', 'Inter', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+  }
+  .b1-price-main .currency { font-size: 0.5em; vertical-align: top; margin-top: 0.35em; color: #94a3b8; }
+  .b1-price-main .period { font-size: 0.32em; color: #64748b; font-family: 'Inter', sans-serif; font-weight: 600; }
+  .b1-price-note { font-size: 0.85rem; color: #64748b; margin-top: 8px; }
+  .b1-price-note .saving { color: #22c55e; font-weight: 700; }
+
+  /* Show/hide */
+  .b1-show-monthly { display: block; }
+  .b1-show-annual  { display: none; }
+  .b1-is-annual .b1-show-monthly { display: none; }
+  .b1-is-annual .b1-show-annual  { display: block; }
+
+  /* Urgency strip */
+  .co-b1 .urgency-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(249,115,22,0.08);
+    border: 1px solid rgba(249,115,22,0.25);
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #F97316;
+  }
+  .co-b1 .urgency-dot {
+    width: 8px; height: 8px;
+    background: #F97316;
+    border-radius: 50%;
+    animation: b1pulse 1.5s infinite;
+    flex-shrink: 0;
+  }
+  @keyframes b1pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+  @media (max-width: 600px) {
+    .co-b1 { padding: 36px 20px 32px; }
+    .billing-toggle button { padding: 9px 14px; font-size: 0.8rem; }
+  }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<div class="co-b1">
+
+  <div class="pre-label">BOSS Copy Pro — Secure Checkout</div>
+
+  <h1>
+    <span style="display:block !important;">You're One Step Away From</span>
+    <span style="display:block !important;"><span class="hl">Conversion-Ready Copy in 60 Seconds</span></span>
+  </h1>
+
+  <p class="sub">
+    Join business owners, marketers, and agency owners who've stopped wasting hours on generic AI copy — and started generating high-converting ads, emails, landing pages, and SMS in under a minute. No copywriting experience needed.
+  </p>
+
+  <!-- Billing toggle -->
+  <div>
+    <div class="billing-toggle">
+      <button class="b1-active" id="b1-btn-monthly" onclick="b1SetBilling('monthly')">Pay Monthly</button>
+      <button id="b1-btn-annual" onclick="b1SetBilling('annual')">Pay Annually <span class="save-badge">SAVE $194</span></button>
+    </div>
+  </div>
+
+  <!-- Price display -->
+  <div class="b1-price-wrap" id="b1-price-root">
+    <div class="b1-show-monthly">
+      <div class="b1-price-main"><span class="currency">$</span>97<span class="period"> / month</span></div>
+      <div class="b1-price-note">Billed monthly &middot; Cancel anytime &middot; No lock-in contracts</div>
+    </div>
+    <div class="b1-show-annual">
+      <div class="b1-price-main"><span class="currency">$</span>970<span class="period"> / year</span></div>
+      <div class="b1-price-note">That's just $80.83/month &middot; <span class="saving">You save $194 compared to monthly billing</span></div>
+    </div>
+  </div>
+
+  <!-- Urgency -->
+  <div class="urgency-strip">
+    <div class="urgency-dot"></div>
+    Launch pricing — lock in your rate before it goes up
+  </div>
+
+</div>
+
+<script>
+  function b1SetBilling(type) {
+    var root = document.getElementById('b1-price-root');
+    var btnM = document.getElementById('b1-btn-monthly');
+    var btnA = document.getElementById('b1-btn-annual');
+    if (type === 'annual') {
+      root.classList.add('b1-is-annual');
+      btnA.classList.add('b1-active');
+      btnM.classList.remove('b1-active');
+    } else {
+      root.classList.remove('b1-is-annual');
+      btnM.classList.add('b1-active');
+      btnA.classList.remove('b1-active');
+    }
+  }
+</script>
